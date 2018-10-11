@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function WidgetTable(props) {
-    const { error, isLoaded, data, sortBy } = props;
+    const { error, isLoaded, data, sortBy, currSort } = props;
     if (error) {
         return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -16,10 +16,10 @@ export default function WidgetTable(props) {
                             <div className="divTableHead rank-col"></div>
                             <div className="divTableHead code-col"></div>
                             <div className="divTableHead"></div>
-                            <div className="divTableHead number-col circle gold-col" onClick={() => sortBy('gold')}></div>
-                            <div className="divTableHead number-col circle silver-col" onClick={() => sortBy('silver')}></div>
-                            <div className="divTableHead number-col circle bronze-col" onClick={() => sortBy('bronze')}></div>
-                            <div className="divTableHead total-col" onClick={() => sortBy('total')}>TOTAL</div>
+                            <div className={`divTableHead number-col circle gold-col ${currSort === "gold" ? "current-sort" : ""}`} onClick={() => sortBy('gold')}></div>
+                            <div className={`divTableHead number-col circle silver-col ${currSort === "silver" ? "current-sort" : ""}`} onClick={() => sortBy('silver')}></div>
+                            <div className={`divTableHead number-col circle bronze-col ${currSort === "bronze" ? "current-sort" : ""}`}onClick={() => sortBy('bronze')}></div>
+                            <div className={`divTableHead total-col ${currSort === "total" ? "current-sort" : ""}`} onClick={() => sortBy('total')}>TOTAL</div>
                         </div>
                     </div>
                     <div className="divTableBody">

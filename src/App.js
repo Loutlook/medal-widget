@@ -14,7 +14,8 @@ class App extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      data: []
+      data: [],
+      currSort: "gold"
     };
 
     this.sortBy = this.sortBy.bind(this);
@@ -51,7 +52,8 @@ class App extends Component {
           (parseInt(b[key]) - parseInt(a[key])) ?
             (parseInt(b[key]) - parseInt(a[key])) :
             (parseInt(b[SEC_SORT_MAP[key]]) - parseInt(a[SEC_SORT_MAP[key]]))
-      )
+      ),
+      currSort: key
     });
   }
 
@@ -63,6 +65,7 @@ class App extends Component {
           isLoaded={this.state.isLoaded}
           data={this.state.data}
           sortBy={this.sortBy}
+          currSort={this.state.currSort}
         />
       </div>
     );

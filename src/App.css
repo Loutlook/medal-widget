@@ -53,9 +53,9 @@ span.title {
   cursor: pointer;
 }
 
-.divTableHead.number-col:hover,
-.divTableHead.total-col:hover {
-  border-top: 2px #7F7F7F;
+.divTableHead.number-col.current-sort,
+.divTableHead.total-col.current-sort {
+  border-top: 2px solid #7F7F7F;
 }
 
 .circle:before {
