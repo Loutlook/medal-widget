@@ -2,20 +2,19 @@ import React, { Component } from 'react';
 import WidgetTable from './components/widget-table';
 import './App.css';
 
+const SEC_SORT_MAP = {
+  gold: "silver",
+  silver: "gold",
+  bronze: "gold",
+  total: "gold"
+};
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
       isLoaded: false,
-      data: [],
-      // TODO: constants
-      secondarySorting: {
-        gold: "silver",
-        silver: "gold",
-        bronze: "gold",
-        total: "gold"
-      }
+      data: []
     };
 
     this.sortBy = this.sortBy.bind(this);
@@ -31,7 +30,6 @@ class App extends Component {
             isLoaded: true,
             data: result.map((row, index) => {
               row.total = row.gold + row.silver + row.bronze;
-              console.log(index, row.code);
               row.contryAlphaRank = index;
               return row;
             }),
@@ -52,7 +50,7 @@ class App extends Component {
         (a, b) =>
           (parseInt(b[key]) - parseInt(a[key])) ?
             (parseInt(b[key]) - parseInt(a[key])) :
-            (parseInt(b[this.state.secondarySorting[key]]) - parseInt(a[this.state.secondarySorting[key]]))
+            (parseInt(b[SEC_SORT_MAP[key]]) - parseInt(a[SEC_SORT_MAP[key]]))
       )
     });
   }

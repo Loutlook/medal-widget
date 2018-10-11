@@ -8,60 +8,37 @@ export default function WidgetTable(props) {
         return <div>Loading...</div>;
     } else {
         return (
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th>
-                                <button
-                                    onClick={() => sortBy('gold')}
-                                >
-                                    Gold
-                            </button>
-                            </th>
-                            <th>
-                                <button
-                                    onClick={() => sortBy('silver')}
-                                >
-                                    Silver
-                            </button>
-                            </th>
-                            <th>
-                                <button
-                                    onClick={() => sortBy('bronze')}
-                                >
-                                    Bronze
-                            </button>
-                            </th>
-                            <th>
-                                <button
-                                    onClick={() => sortBy('total')}
-                                >
-                                    Total
-                            </button>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <section>
+                <span className="title">MEDAL COUNT</span>
+                <div className="divTable medalCount">
+                    <div className="divTableHeading">
+                        <div className="divTableRow">
+                            <div className="divTableHead rank-col"></div>
+                            <div className="divTableHead code-col"></div>
+                            <div className="divTableHead"></div>
+                            <div className="divTableHead number-col circle gold-col" onClick={() => sortBy('gold')}></div>
+                            <div className="divTableHead number-col circle silver-col" onClick={() => sortBy('silver')}></div>
+                            <div className="divTableHead number-col circle bronze-col" onClick={() => sortBy('bronze')}></div>
+                            <div className="divTableHead total-col" onClick={() => sortBy('total')}>TOTAL</div>
+                        </div>
+                    </div>
+                    <div className="divTableBody">
                         {
                             data.slice(0, 10).map((row, index) => (
-                                <tr>
-                                    <td>{index + 1}</td>
-                                    <td className="flags" style={{backgroundPosition: '0 -'+row.contryAlphaRank*17+'px'}}></td>
-                                    <td>{row.code}</td>
-                                    <td>{row.gold}</td>
-                                    <td>{row.silver}</td>
-                                    <td>{row.bronze}</td>
-                                    <td><strong>{row.total}</strong></td>
-                                </tr>
+                                <div className="divTableRow" key={index}>
+                                    <div className="divTableCell rank-col">{index + 1}</div>
+                                    <div className="divTableCell flags-col"><div className="flag" style={{backgroundPosition: '0 -' + row.contryAlphaRank * 17 + 'px'}}></div></div>
+                                    <div className="divTableCell code-col">{row.code}</div>
+                                    <div className="divTableCell number-col">{row.gold}</div>
+                                    <div className="divTableCell number-col">{row.silver}</div>
+                                    <div className="divTableCell number-col">{row.bronze}</div>
+                                    <div className="divTableCell total-col">{row.total}</div>
+                                </div>
                             ))
                         }
-                    </tbody>
-                </table>
-            </div>
+                    </div>
+                </div>
+            </section>
         )
     }
 };

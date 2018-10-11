@@ -1,41 +1,108 @@
-.App {
-  text-align: center;
+span.title {
+  font-size: 22px;
+  color: #7F7F7F;
+  text-align: left;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.flags {
-  width: 30px;
-  height: 15px;
+.flag {
+  height: 17px;
   margin-top: 3px;
   background-image: url('./flags.png');
   background-repeat: no-repeat;
 }
 
+.rank-col,
+.code-col,
+.number-col {
+  color: #7F7F7F;
+}
+
+.rank-col,
+.number-col {
+  font-weight: 600;
+}
+
+.code-col,
+.total-col {
+  font-weight: 800;
+}
+
+.rank-col {
+  width: 8px;
+}
+
+.flags-col {
+  width: 12px;
+}
+
+.code-col {
+  width: 20px;
+  text-align: left;
+}
+
+.number-col {
+  width: 10px;
+}
+
+.total-col {
+  width: 30px;
+}
+
+.divTableHead.number-col,
+.divTableHead.total-col {
+  cursor: pointer;
+}
+
+.divTableHead.number-col:hover,
+.divTableHead.total-col:hover {
+  border-top: 2px #7F7F7F;
+}
+
+.circle:before {
+  content: "\25CF";
+  font-size: 20px;
+}
+
+.circle.gold-col:before {
+  color: gold;
+}
+
+.circle.silver-col:before {
+  color: silver;
+}
+
+.circle.bronze-col:before {
+  color: #A57E0C;
+}
+
+div.medalCount {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+.divTable.medalCount .divTableCell, .divTable.medalCount .divTableHead {
+  padding: 3px 4px;
+}
+.divTable.medalCount .divTableCell {
+  height: 21px;
+  font-size: 15px;
+  border-bottom: 1px solid #7F7F7F;
+}
+.divTable.medalCount .divTableHeading {
+  background: #FFFFFF;
+  border-bottom: 2px solid #7F7F7F;
+}
+.divTable.medalCount .divTableHeading .divTableHead {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+}
+/* DivTable.com */
+.divTable{ display: table; }
+.divTableRow { display: table-row; }
+.divTableHeading { display: table-header-group;}
+.divTableCell, .divTableHead { display: table-cell;}
+.divTableHeading { display: table-header-group;}
+.divTableFoot { display: table-footer-group;}
+.divTableBody { display: table-row-group;}
