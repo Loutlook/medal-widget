@@ -16,6 +16,7 @@ export default function WidgetTable(props) {
                             <div className="divTableHead rank-col"></div>
                             <div className="divTableHead code-col"></div>
                             <div className="divTableHead"></div>
+                            <div className="divTableHead"></div>
                             <div className={`divTableHead number-col circle gold-col ${currSort === "gold" ? "current-sort" : ""}`} onClick={() => sortBy('gold')}></div>
                             <div className={`divTableHead number-col circle silver-col ${currSort === "silver" ? "current-sort" : ""}`} onClick={() => sortBy('silver')}></div>
                             <div className={`divTableHead number-col circle bronze-col ${currSort === "bronze" ? "current-sort" : ""}`}onClick={() => sortBy('bronze')}></div>
@@ -29,6 +30,7 @@ export default function WidgetTable(props) {
                                     <div className="divTableCell rank-col">{index + 1}</div>
                                     <div className="divTableCell flags-col"><div className="flag" style={{backgroundPosition: '0 -' + row.contryAlphaRank * 17 + 'px'}}></div></div>
                                     <div className="divTableCell code-col">{row.code}</div>
+                                    <div className="divTableCell code-col"></div>
                                     <div className="divTableCell number-col">{row.gold}</div>
                                     <div className="divTableCell number-col">{row.silver}</div>
                                     <div className="divTableCell number-col">{row.bronze}</div>
